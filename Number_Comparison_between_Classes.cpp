@@ -29,8 +29,8 @@ int minimum(A objA, B objB)
 }
 int main()
 {
-    A objA(526, 965);
-    B objB(52, 896);
+    A objA(26, 39);
+    B objB(47, 31);
     cout << "a = " << objA.a << "    b = " << objA.b << endl;
     cout << "c = " << objB.c << "    d = " << objB.d << endl;
     cout << "Maximum = " << maximum(objA, objB) << "\nMinimum = " << minimum(objA, objB) << endl
