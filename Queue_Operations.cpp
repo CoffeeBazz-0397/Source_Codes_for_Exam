@@ -1,6 +1,5 @@
 #include <iostream>
 #include <deque>
-
 using namespace std;
 
 int main()
@@ -10,32 +9,31 @@ int main()
 
     while (true)
     {
-        cout << "\nQueue Operations Menu:\n";
-        cout << "1. Insert (Enqueue)\n";
-        cout << "2. Delete (Dequeue)\n";
-        cout << "3. Display Queue\n";
-        cout << "4. Exit\n";
+        cout << "\nQueue operations menu: " << endl
+             << "1. Enqueue" << endl
+             << "2. Dequeue" << endl
+             << "3. Show" << endl
+             << "4. Exit" << endl;
         cout << "Enter your choice: ";
         cin >> choice;
 
         switch (choice)
         {
         case 1:
-            cout << "Enter the value to insert: ";
+            cout << "Enter the value: ";
             cin >> value;
             q.push_back(value);
-            cout << value << " inserted into the queue.\n";
             break;
 
         case 2:
             if (!q.empty())
             {
-                cout << q.front() << " deleted from the queue.\n";
+                cout << q.front() << " is deleted from the queue" << endl;
                 q.pop_front();
             }
             else
             {
-                cout << "Queue is empty. Cannot delete.\n";
+                cout << "Queue is empty" << endl;
             }
             break;
 
@@ -51,16 +49,17 @@ int main()
             }
             else
             {
-                cout << "Queue is empty.\n";
+                cout << "Queue is empty" << endl;
             }
             break;
 
         case 4:
-            cout << "Exiting the program.\n";
+            cout << "Exiting... ... ..." << endl;
             return 0;
 
         default:
-            cout << "Invalid choice! Please try again.\n";
+            cout << "Invalid choice. Try again." << endl;
+            break;
         }
     }
 
