@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 double area(double a)
 {
@@ -11,7 +12,7 @@ double area(double a, double b)
 double area(double a, double b, double c)
 {
     double s = (a + b + c) / 2.0;
-    double result = s * (s - a) * (s - b) * (s - c);
+    double result = sqrt(s * (s - a) * (s - b) * (s - c));
     return result;
 }
 int main()
