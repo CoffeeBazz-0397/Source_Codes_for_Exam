@@ -1,37 +1,32 @@
 #include <iostream>
 #include <string>
 using namespace std;
-
-class Student
+class student
 {
 private:
     string name;
-    string semester;
+    int semester;
     int rollNo;
     string section;
-    int marks[5];
+    int marks[5], totalMarks;
 
 public:
     void setName(string n)
     {
         name = n;
     }
-
-    void setSemester(string sem)
+    void setSemester(int sem)
     {
         semester = sem;
     }
-
-    void setRollNo(int roll)
+    void setRoll(int roll)
     {
         rollNo = roll;
     }
-
     void setSection(string sec)
     {
         section = sec;
     }
-
     void setMarks(int m[])
     {
         for (int i = 0; i < 5; i++)
@@ -39,79 +34,66 @@ public:
             marks[i] = m[i];
         }
     }
-
     string getName()
     {
         return name;
     }
-
-    string getSemester()
+    int getSemester()
     {
         return semester;
     }
-
-    int getRollNo()
+    int getRoll()
     {
         return rollNo;
     }
-
     string getSection()
     {
         return section;
     }
-
-    int *getMarks()
+    int getTotal()
     {
-        return marks;
-    }
-
-    int calculateTotalMarks()
-    {
-        int total = 0;
+        int totalMarks = 0;
         for (int i = 0; i < 5; i++)
         {
-            total += marks[i];
+            totalMarks += marks[i];
         }
-        return total;
+        return totalMarks;
     }
-
     void studentInfo()
     {
-        cout << "\n__Student Information__" << endl;
+        cout << "___Student Information___" << endl
+             << endl;
         cout << "Name: " << getName() << endl;
         cout << "Semester: " << getSemester() << endl;
-        cout << "Roll No: " << getRollNo() << endl;
+        cout << "Roll no: " << getRoll() << endl;
         cout << "Section: " << getSection() << endl;
-        cout << "Total Marks: " << calculateTotalMarks() << endl;
+        cout << "Total marks: " << getTotal() << endl;
     }
 };
-
 int main()
 {
-    Student s;
-    string name, semester, section;
-    int rollNo;
-    int marks[5];
+    int rollNo, semester, marks[5];
+    string name, section;
+    student s;
 
     cout << "Enter the name of the student: ";
     getline(cin, name);
     s.setName(name);
 
-    cout << "Enter the semester: ";
+    cout << "Enter the semester of the student: ";
     cin >> semester;
     s.setSemester(semester);
 
     cout << "Enter the roll no: ";
     cin >> rollNo;
-    s.setRollNo(rollNo);
-
+    s.setRoll(rollNo);
     cin.ignore();
 
     cout << "Enter the section: ";
     getline(cin, section);
     s.setSection(section);
 
-    cout << "Enter the marks of the subjects (5 values): ";
+    cout << "Enter the marks of 5 subjects: ";
     for (int i = 0; i < 5; i++)
     {
         cin >> marks[i];
