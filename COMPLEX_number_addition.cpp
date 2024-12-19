@@ -1,42 +1,49 @@
 #include <iostream>
 using namespace std;
-class COMPLEX
+
+class complex
 {
 private:
-    double real;
-    double imaginary;
+    int real, imaginary;
 
 public:
-    COMPLEX(double r = 0, double i = 0) : real(r), imaginary(i) {}
-    void show() const
+    void setNumber(int r, int i)
+    {
+        real = r;
+        imaginary = i;
+    }
+    friend complex operator+(complex obj1, complex obj2);
+    void printNumber()
     {
         if (imaginary >= 0)
+        {
             cout << real << " + " << imaginary << "i" << endl;
+        }
         else
+        {
             cout << real << " - " << -imaginary << "i" << endl;
-    }
-    COMPLEX add(const COMPLEX &other) const
-    {
-        return COMPLEX(real + other.real, imaginary + other.imaginary);
+        }
     }
 };
 
+complex operator+(complex obj1, complex obj2)
+{
+    complex obj3;
+    obj3.setNumber(obj1.real + obj2.real, obj1.imaginary + obj2.imaginary);
+    return obj3;
+}
+
 int main()
 {
-    double r1, i1, r2, i2;
-    cout << "Enter the first complex number: ";
-    cin >> r1 >> i1;
-    COMPLEX c1(r1, i1);
-    cout << "Enter the second complex number: ";
-    cin >> r2 >> i2;
-    COMPLEX c2(r2, i2);
-    COMPLEX c3 = c1.add(c2);
-    cout << "First Complex Number: ";
-    c1.show();
-    cout << "Second Complex Number: ";
-    c2.show();
-    cout << "Sum of the Complex Numbers: ";
-    c3.show();
-
+    complex c1, c2, sum;
+    c1.setNumber(3, 2);
+    c2.setNumber(1, 5);
+    sum = c1 + c2;
+    cout << "First complex number: ";
+    c1.printNumber();
+    cout << "Second complex number: ";
+    c2.printNumber();
+    cout << "Sum of the complex numbers: ";
+    sum.printNumber();
     return 0;
 }
