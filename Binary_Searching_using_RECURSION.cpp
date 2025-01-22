@@ -1,4 +1,3 @@
-// Binary Search using RECURSION
 #include <iostream>
 using namespace std;
 int binarySearch(int arr[], int n, int element)
